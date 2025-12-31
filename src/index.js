@@ -6,4 +6,12 @@ dotenv.config({
     path: './env'
 })
 
-connectdb()
+connectdb(()=>{
+    app.listen(process.env.PORT||5000,()=>{
+        console.log(`server is running ankit at ${process.env.PORT}`); 
+    })
+})
+.then()
+.catch((err)=>{
+    consol.log("mongo db connection faild",err )
+})
